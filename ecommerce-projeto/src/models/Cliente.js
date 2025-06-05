@@ -10,16 +10,10 @@ class Cliente {
     this.endereco = endereco;
   }
 
-  async inserir() {
+  static async inserir(dados) {
     try {
       const { db, client } = await connect();
-      const result = await db.collection("clientes").insertOne({
-        nome: this.nome,
-        email: this.email,
-        senha: this.senha,
-        telefone: this.telefone,
-        endereco: this.endereco,
-      });
+      const result = await db.collection("clientes").insertOne(dados);
       console.log("Cliente inserido:", result.insertedId);
       client.close();
     } catch (error) {

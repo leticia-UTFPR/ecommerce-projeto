@@ -10,15 +10,10 @@ class ItemPedido {
     this.precoUnitario = precoUnitario;
   }
 
-  async inserir() {
+  static async inserir(dados) {
     try {
       const { db, client } = await connect();
-      const result = await db.collection("itensPedido").insertOne({
-        idPedido: this.idPedido,
-        idProduto: this.idProduto,
-        quantidade: this.quantidade,
-        precoUnitario: this.precoUnitario,
-      });
+      const result = await db.collection("itensPedido").insertOne(dados);
       console.log("Item do pedido inserido:", result.insertedId);
       client.close();
     } catch (error) {

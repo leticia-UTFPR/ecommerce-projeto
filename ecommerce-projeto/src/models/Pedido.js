@@ -9,14 +9,10 @@ class Pedido {
     this.status = status;
   }
 
-  async inserir() {
+  static async inserir(dados) {
     try {
       const { db, client } = await connect();
-      const result = await db.collection("pedidos").insertOne({
-        idCliente: this.idCliente,
-        data: this.data,
-        status: this.status,
-      });
+      const result = await db.collection("pedidos").insertOne(dados);
       console.log("Pedido inserido:", result.insertedId);
       client.close();
     } catch (error) {
