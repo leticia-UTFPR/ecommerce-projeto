@@ -24,7 +24,7 @@ async function testarCRUD(model, dadosCriacao, dadosAtualizacao) {
 
   await model.atualizar(dadosCriacao, dadosAtualizacao);
 
-  await model.deletar(dadosAtualizacao);
+  //await model.deletar(dadosAtualizacao);
 
   await model.buscar();
 }

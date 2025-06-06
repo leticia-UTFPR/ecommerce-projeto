@@ -10,7 +10,7 @@ class Pagamento {
     this.dataPagamento = new Date(dataPagamento);
   }
 
-  static async inserir() {
+  static async inserir(dados) {
     try {
       const { db, client } = await connect();
       const result = await db.collection("pagamentos").insertOne(dados);
