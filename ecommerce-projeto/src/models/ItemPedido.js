@@ -10,8 +10,33 @@ class ItemPedido {
     this.precoUnitario = precoUnitario;
   }
 
+  static validarCamposObrigatorios(dados) {
+    const camposObrigatorios = ["idPedido", "idProduto", "quantidade", "precoUnitario"];
+    const camposFaltando = camposObrigatorios.filter(
+      campo => !dados[campo] || dados[campo].toString().trim() === ""
+    );
+
+    if (camposFaltando.length > 0) {
+      throw new Error("Campos obrigatórios faltando: " + camposFaltando.join(", "));
+    }
+  }
+
+  static validarCamposAtualizacao(dados) {
+    const camposObrigatorios = ["idPedido", "idProduto", "quantidade", "precoUnitario"];
+    const camposInvalidos = [];
+
+    for (const campo of camposObrigatorios) {
+      if (campo in dados && (dados[campo] === undefined || dados[campo].toString().trim() === "")) {
+        camposInvalidos.push(campo);
+      }
+    }
+  }
+
   static async inserir(dados) {
     try {
+
+      this.validarCamposObrigatorios(dados);
+
       const { db, client } = await connect();
       const result = await db.collection("itensPedido").insertOne(dados);
       console.log("Item do pedido inserido:", result.insertedId);
@@ -34,6 +59,8 @@ class ItemPedido {
 
   static async atualizar(filtro, novosDados) {
     try {
+
+      this.validarCamposAtualizacao(novosDados);
       const { db, client } = await connect();
       const result = await db.collection("itensPedido").updateMany(filtro, { $set: novosDados });
       console.log("Itens atualizados:", result.modifiedCount);

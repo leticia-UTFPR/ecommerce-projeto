@@ -1,2 +1,12 @@
-[2025-07-01T05:24:47.566Z] - Erro ao inserir cliente: Error: Campos obrigatórios faltando: nome
-[2025-07-01T05:25:36.087Z] - Erro ao atualizar clientes: Error: Campos com valores inválidos na atualização: telefone
+[2025-07-01T06:24:54.295Z] - Erro ao buscar produtos: ReferenceError: novosDados is not defined
+[2025-07-01T06:26:33.445Z] - Erro ao inserir cliente: MongoServerError: E11000 duplicate key error collection: ecommerce.clientes index: _id_ dup key: { _id: ObjectId('665000000000000000000001') }
+[2025-07-01T06:26:33.484Z] - Erro ao inserir produto: Error: Campos obrigatórios faltando: categoria
+[2025-07-01T06:26:33.485Z] - Erro ao buscar produtos: ReferenceError: novosDados is not defined
+[2025-07-01T06:26:33.505Z] - Erro ao inserir pedido: Error: Campos obrigatórios faltando: status
+[2025-07-01T06:26:33.538Z] - Erro ao inserir item do pedido: Error: Campos obrigatórios faltando: quantidade
+[2025-07-01T06:26:33.569Z] - Erro ao inserir pagamento: Error: Campos obrigatórios faltando: tipo
+[2025-07-01T06:26:41.363Z] - Erro ao inserir produto: Error: Campos obrigatórios faltando: categoria
+[2025-07-01T06:26:41.365Z] - Erro ao buscar produtos: ReferenceError: novosDados is not defined
+[2025-07-01T06:26:41.382Z] - Erro ao inserir pedido: Error: Campos obrigatórios faltando: status
+[2025-07-01T06:26:41.430Z] - Erro ao inserir item do pedido: Error: Campos obrigatórios faltando: quantidade
+[2025-07-01T06:26:41.464Z] - Erro ao inserir pagamento: Error: Campos obrigatórios faltando: tipo

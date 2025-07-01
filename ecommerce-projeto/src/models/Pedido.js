@@ -9,8 +9,33 @@ class Pedido {
     this.status = status;
   }
 
+  static validarCamposObrigatorios(dados) {
+    const camposObrigatorios = ["idCliente", "data", "status"];
+    const camposFaltando = camposObrigatorios.filter(
+      campo => !dados[campo] || dados[campo].toString().trim() === ""
+    );
+
+    if (camposFaltando.length > 0) {
+      throw new Error("Campos obrigatórios faltando: " + camposFaltando.join(", "));
+    }
+  }
+
+  static validarCamposAtualizacao(dados) {
+    const camposObrigatorios = ["idCliente", "data", "status"];
+    const camposInvalidos = [];
+
+    for (const campo of camposObrigatorios) {
+      if (campo in dados && (dados[campo] === undefined || dados[campo].toString().trim() === "")) {
+        camposInvalidos.push(campo);
+      }
+    }
+  }
+
   static async inserir(dados) {
     try {
+
+      this.validarCamposObrigatorios(dados);
+
       const { db, client } = await connect();
       const result = await db.collection("pedidos").insertOne(dados);
       console.log("Pedido inserido:", result.insertedId);
@@ -33,6 +58,9 @@ class Pedido {
 
   static async atualizar(filtro, novosDados) {
     try {
+
+      this.validarCamposAtualizacao(novosDados);
+      
       const { db, client } = await connect();
       const result = await db.collection("pedidos").updateMany(filtro, { $set: novosDados });
       console.log("Pedidos atualizados:", result.modifiedCount);

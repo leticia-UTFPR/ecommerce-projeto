@@ -33,6 +33,7 @@ const pedidos = [
 
 const itensPedido = [
   {
+    _id: new ObjectId("68636b498208259fb8f87da9"),
     idPedido: pedidos[0]._id,
     idProduto: produtos[0]._id,
     quantidade: 2,
@@ -42,6 +43,7 @@ const itensPedido = [
 
 const pagamentos = [
   {
+    _id: new ObjectId("686377da350caecc3a159afd"),
     idPedido: pedidos[0]._id,
     tipo: "cartao",
     status: "pago",
