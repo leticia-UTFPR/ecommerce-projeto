@@ -10,8 +10,36 @@ class Cliente {
     this.endereco = endereco;
   }
 
+  static validarCamposObrigatorios(dados) {
+    const camposObrigatorios = ["nome", "email", "senha", "telefone", "endereco"];
+    const camposFaltando = camposObrigatorios.filter(
+      campo => !dados[campo] || dados[campo].toString().trim() === ""
+    );
+
+    if (camposFaltando.length > 0) {
+      throw new Error("Campos obrigatórios faltando: " + camposFaltando.join(", "));
+    }
+  }
+
+  static validarCamposAtualizacao(dados) {
+    const camposObrigatorios = ["nome", "email", "senha", "telefone", "endereco"];
+    const camposInvalidos = [];
+
+    for (const campo of camposObrigatorios) {
+      if (campo in dados && (dados[campo] === undefined || dados[campo].toString().trim() === "")) {
+        camposInvalidos.push(campo);
+      }
+    }
+
+    if (camposInvalidos.length > 0) {
+      throw new Error("Campos com valores inválidos na atualização: " + camposInvalidos.join(", "));
+    }
+  }
+
   static async inserir(dados) {
     try {
+      this.validarCamposObrigatorios(dados);
+      
       const { db, client } = await connect();
       const result = await db.collection("clientes").insertOne(dados);
       console.log("Cliente inserido:", result.insertedId);
@@ -34,6 +62,8 @@ class Cliente {
 
   static async atualizar(filtro, novosDados) {
     try {
+      this.validarCamposAtualizacao(novosDados);
+      
       const { db, client } = await connect();
       const result = await db.collection("clientes").updateMany(filtro, { $set: novosDados });
       console.log("Clientes atualizados:", result.modifiedCount);

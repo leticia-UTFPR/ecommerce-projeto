@@ -1,10 +1,2 @@
-[2025-06-06T02:33:39.926Z] - Erro ao atualizar itens: MongoServerError: Modifiers operate on fields but we found type null instead. For example: {$mod: {<field>: ...}} not {$set: null}
-[2025-06-06T02:33:39.942Z] - Erro ao inserir pagamento: ReferenceError: dados is not defined
-[2025-06-06T02:40:24.720Z] - Erro ao atualizar itens: MongoServerError: Modifiers operate on fields but we found type null instead. For example: {$mod: {<field>: ...}} not {$set: null}
-[2025-06-06T02:40:24.736Z] - Erro ao inserir pagamento: ReferenceError: dados is not defined
-[2025-06-06T02:41:27.568Z] - Erro ao atualizar itens: MongoServerError: Modifiers operate on fields but we found type null instead. For example: {$mod: {<field>: ...}} not {$set: null}
-[2025-06-06T02:41:27.579Z] - Erro ao inserir pagamento: ReferenceError: dados is not defined
-[2025-06-06T02:42:47.340Z] - Erro ao inserir cliente: MongoServerError: E11000 duplicate key error collection: ecommerce.clientes index: _id_ dup key: { _id: ObjectId('665000000000000000000001') }
-[2025-06-06T02:42:47.381Z] - Erro ao inserir produto: MongoServerError: E11000 duplicate key error collection: ecommerce.produtos index: _id_ dup key: { _id: ObjectId('665000000000000000000002') }
-[2025-06-06T02:42:47.417Z] - Erro ao inserir pedido: MongoServerError: E11000 duplicate key error collection: ecommerce.pedidos index: _id_ dup key: { _id: ObjectId('665000000000000000000003') }
-[2025-06-06T02:42:47.476Z] - Erro ao atualizar itens: MongoServerError: Modifiers operate on fields but we found type null instead. For example: {$mod: {<field>: ...}} not {$set: null}
+[2025-07-01T05:24:47.566Z] - Erro ao inserir cliente: Error: Campos obrigatórios faltando: nome
+[2025-07-01T05:25:36.087Z] - Erro ao atualizar clientes: Error: Campos com valores inválidos na atualização: telefone

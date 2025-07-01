@@ -3,7 +3,7 @@ const Produto = require("./models/Produto");
 const Pedido = require("./models/Pedido");
 const ItemPedido = require("./models/ItemPedido");
 const Pagamento = require("./models/Pagamento");
-const { clientes, produtos, pedidos, itensPedido, pagamentos, clienteAtualizado, produtoAtualizado, pedidoAtualizado, itensPedidoAtualizado, pagamentoAtualizado } = require("./dados");
+const { clientes, produtos, pedidos, itensPedido, pagamentos, clienteAtualizado, produtoAtualizado, pedidoAtualizado, itemPedidoAtualizado, pagamentoAtualizado } = require("./dados");
 
 const construtores = {
   Cliente: (dados) => new Cliente(dados.nome, dados.email, dados.senha, dados.telefone, dados.endereco),
@@ -36,7 +36,7 @@ async function executar() {
 
   await testarCRUD(Pedido, pedidos[0], pedidoAtualizado);
 
-  await testarCRUD(ItemPedido, itensPedido[0], itensPedidoAtualizado);
+  await testarCRUD(ItemPedido, itensPedido[0], itemPedidoAtualizado);
 
   await testarCRUD(Pagamento, pagamentos[0], pagamentoAtualizado);
 }
