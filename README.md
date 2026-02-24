@@ -145,28 +145,10 @@ Este projeto pode evoluir para:
 
 ## 👨‍💻 Autores
 
-**Carlos Eduardo Pires de Santana Hereman**
-**Letícia Marchioni dos Santos**
+**Carlos Eduardo Pires de Santana Hereman**<br>
+**Letícia Marchioni dos Santos**<br>
 **Luccas Maia Hessel**
 
 Projeto acadêmico – UTFPR
 
 ---
-
-# 💡 Sugestão Extra (Para ficar ainda mais profissional)
-
-No topo do README você pode adicionar badges como:
-
-```
-![Node.js](https://img.shields.io/badge/Node.js-18.x-green)
-![MongoDB](https://img.shields.io/badge/MongoDB-6.x-brightgreen)
-![Status](https://img.shields.io/badge/status-academic_project-blue)
-```
-
-Se quiser, posso agora:
-
-* 🔥 Deixar esse README com nível “projeto de desenvolvedor júnior forte”
-* 🧠 Transformar em versão em inglês (ótimo para recrutadores)
-* 🚀 Ou montar a versão final ideal pensando em vaga backend Node.js
-
-Qual dessas você quer?
